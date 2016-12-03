@@ -1,0 +1,11 @@
+{{ define "list" }}
+{{ template "head" }}
+    <h1>list</h1>
+
+    <ul>
+        {{ range $p := . }}
+        <li><a href="/page?p={{ $p.Path}}">{{ $p.Title }}</a></li>
+        {{ end }}
+    </ul>
+{{ template "foot" }}
+{{ end }}

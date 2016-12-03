@@ -1,0 +1,14 @@
+{{ define "edit" }}
+{{ template "head" }}
+
+    <h1>Editing {{.Title}}</h1>
+
+    <form action="/page?p={{.Path}}" method="POST">
+        <input type="text" name="title" value="{{.Title}}" />
+        <input type="checkbox" name="draft" value="true" />
+        <div><textarea name="body" rows="20" cols="80">{{printf "%s" .Body}}</textarea></div>
+        <div><input type="submit" value="Save"></div>
+    </form>
+
+{{ template "foot" }}
+{{ end }}
