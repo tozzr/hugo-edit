@@ -77,6 +77,7 @@ func main() {
 	r.HandleFunc("/", pageListHandler).Methods("GET")
 	r.HandleFunc("/page", pageEditHandler).Methods("GET")
 	r.HandleFunc("/page", pageSaveHandler).Methods("POST")
+	r.PathPrefix("/").Handler(http.FileServer(http.Dir("./static/")))
 	http.Handle("/", r)
 	http.ListenAndServe(":1314", nil)
 }
